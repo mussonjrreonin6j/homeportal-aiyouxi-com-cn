@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://mussonjrreonin6j.github.io/homeportal-aiyouxi-com-cn/sitemap.xml
