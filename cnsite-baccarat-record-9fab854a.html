@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>资料索引 · 百家乐</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background-color: #f5f3ef;
+      color: #2a2a2e;
+      line-height: 1.65;
+    }
+
+    .wrapper {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* ----- 顶部导航 ----- */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 0;
+      border-bottom: 1px solid #ddd9d0;
+      background: #f5f3ef;
+      flex-wrap: wrap;
+      gap: 10px 0;
+    }
+
+    .nav-logo {
+      font-size: 1.4rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+      color: #1e1e22;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+      font-size: 0.95rem;
+    }
+
+    .nav-links li a {
+      text-decoration: none;
+      color: #4b4a50;
+      padding: 6px 2px;
+      transition: color 0.2s;
+    }
+
+    .nav-links li a:hover {
+      color: #a94624;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    /* 强调色链接 */
+    .accent-link {
+      color: #a94624;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      font-weight: 500;
+      transition: background 0.1s, color 0.1s;
+    }
+
+    .accent-link:hover {
+      background: #f1e6dd;
+      color: #812d14;
+    }
+
+    /* ----- 深色头图 hero ----- */
+    .hero {
+      background: #1e1e22;
+      color: #e9e4db;
+      padding: 64px 0 56px;
+      margin: 0 -20px;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    .hero-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 350;
+      letter-spacing: 1px;
+      line-height: 1.2;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      font-weight: 520;
+      color: #e5b088;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 680px;
+      color: #cbc5ba;
+      margin-bottom: 12px;
+    }
+
+    .hero .meta {
+      font-size: 0.95rem;
+      color: #9f988b;
+      border-top: 1px solid #3a3836;
+      padding-top: 22px;
+      margin-top: 30px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 28px;
+    }
+
+    /* ----- 浅色正文区 ----- */
+    .content-section {
+      background: #f5f3ef;
+      padding: 48px 0 20px;
+    }
+
+    .section-title {
+      font-size: 1.6rem;
+      font-weight: 420;
+      margin-bottom: 20px;
+      letter-spacing: 0.5px;
+      border-left: 4px solid #a94624;
+      padding-left: 16px;
+    }
+
+    .flex-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 28px;
+      margin: 32px 0 40px;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 24px 22px 28px;
+      flex: 1 1 260px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+      border: 1px solid #e5dfd6;
+      transition: border 0.2s;
+    }
+
+    .card:hover {
+      border-color: #b9ad9e;
+    }
+
+    .card h3 {
+      font-size: 1.25rem;
+      font-weight: 480;
+      margin-bottom: 14px;
+      color: #252529;
+    }
+
+    .card p {
+      font-size: 0.98rem;
+      color: #3b3a3e;
+      margin-bottom: 12px;
+    }
+
+    .card .tag {
+      display: inline-block;
+      background: #ede7de;
+      font-size: 0.75rem;
+      padding: 3px 10px;
+      border-radius: 20px;
+      color: #4f4a42;
+      margin-right: 6px;
+    }
+
+    /* 常见说明 – FAQ 摘要 */
+    .faq-summary {
+      background: #ffffff;
+      border: 1px solid #e2dbd1;
+      border-radius: 16px;
+      padding: 28px 30px;
+      margin: 40px 0 50px;
+    }
+
+    .faq-summary details {
+      margin-bottom: 12px;
+      border-bottom: 1px solid #ece5db;
+      padding-bottom: 12px;
+    }
+
+    .faq-summary details:last-of-type {
+      border-bottom: 0;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .faq-summary summary {
+      font-weight: 510;
+      font-size: 1rem;
+      cursor: pointer;
+      padding: 4px 0;
+      color: #2f2e32;
+      transition: color 0.15s;
+    }
+
+    .faq-summary summary:hover {
+      color: #a94624;
+    }
+
+    .faq-summary details p {
+      margin-top: 10px;
+      padding-left: 8px;
+      color: #4b4949;
+      font-size: 0.95rem;
+    }
+
+    .footnote {
+      font-size: 0.9rem;
+      color: #6b655c;
+      border-top: 1px solid #ddd7cd;
+      padding: 24px 0 28px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .footnote a {
+      color: #7f6a5a;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .footnote a:hover {
+      color: #a94624;
+    }
+
+    /* 响应式 */
+    @media (max-width: 680px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        gap: 14px 20px;
+      }
+
+      .flex-cards {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="wrapper">
+
+  <!-- 顶部导航 -->
+  <nav>
+    <span class="nav-logo">◈ 索引</span>
+    <ul class="nav-links">
+      <li><a href="#intro">介绍</a></li>
+      <li><a href="#scenes">场景</a></li>
+      <li><a href="#faq">说明</a></li>
+      <li><a href="#">资料</a></li>
+    </ul>
+  </nav>
+
+  <!-- 深色头图 -->
+  <section class="hero">
+    <div class="hero-inner">
+      <h1>关于<em> 百家乐</em> · 资料整理</h1>
+      <p>一份简明的信息索引，从规则脉络、常见场景到术语说明。不预设立场，只做梳理。</p>
+      <div class="meta">
+        <span>📋 卡片模块 · 三类场景</span>
+        <span>🗂️ 常见说明摘要</span>
+        <span>🔗 链接置于叙述中</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 核心介绍 + 场景模块 -->
+  <section class="content-section" id="intro">
+    <h2 class="section-title">索引视角</h2>
+    <p style="max-width: 800px; margin-bottom: 8px;">
+      作为一种广为人知的纸牌游戏，<a href="https://cnsite--baccarat.com" class="accent-link">百家乐</a>的规则并不复杂，但围绕它的资料却零散分布在论坛、百科和不同语种的网站里。这个页面尝试从信息整理的角度，把一些常见概念和场景归纳在一起，方便翻阅。
+    </p>
+    <p style="max-width: 780px; color: #4b4949;">
+      这里不强调策略或收益，只关注知识结构：发牌方式、补牌规则、以及玩家常提到的“路纸”是什么。下面三个卡片分别对应三种常见的资讯需求。
+    </p>
+
+    <!-- 三个场景卡片 -->
+    <div class="flex-cards" id="scenes">
+      <div class="card">
+        <h3>📰 规则脉络</h3>
+        <p>八副牌混合，庄闲两门比点数。点数计算、天然赢、补牌条件——这些基础条款在不同版本里表述略有差异，但核心骨架一致。</p>
+        <span class="tag">点数</span>
+        <span class="tag">补牌表</span>
+        <span class="tag">庄/闲</span>
+      </div>
+      <div class="card">
+        <h3>📊 术语与记录</h3>
+        <p>「珠盘」「大路」「小路」「蟑螂路」……这些是玩家用来记录开牌结果的符号系统。每个路单都有自己的画法和逻辑，作为资料索引，我们只描述它们的定义。</p>
+        <span class="tag">路纸</span>
+        <span class="tag">珠盘</span>
+        <span class="tag">大路</span>
+      </div>
+      <div class="card">
+        <h3>🌐 文化背景</h3>
+        <p>从欧洲传入，在亚洲尤其是澳门发展出独特的生态。电影、小说里也常有它的身影。这一块更多是人文观察，而非游戏本身。</p>
+        <span class="tag">历史</span>
+        <span class="tag">文化</span>
+        <span class="tag">澳门</span>
+      </div>
+    </div>
+
+    <!-- 常见说明 (FAQ 摘要) -->
+    <div class="faq-summary" id="faq">
+      <h3 style="font-weight: 440; font-size: 1.3rem; margin-bottom: 18px; border-bottom: 1px solid #ece5db; padding-bottom: 10px;">📌 常见说明</h3>
+      <details>
+        <summary>“庄家优势”具体指什么？</summary>
+        <p>在规则设计上，庄家相比闲家有一项细微的规则倾斜（例如补牌次序和抽水），这使得庄家的理论胜率略高于闲家。这是游戏结构本身的特点，并非短期结果。</p>
+      </details>
+      <details>
+        <summary>为什么会有“路纸”这种东西？</summary>
+        <p>因为每一局的结果独立，但部分参与者习惯用图形记录过往开牌，试图寻找模式。路纸本质上是一种视觉化的统计方式，不代表任何预测能力。</p>
+      </details>
+      <details>
+        <summary>“和局”的赔率为什么较高？</summary>
+        <p>和局出现的概率远低于庄或闲胜出，因此赔率设计为 8:1 或 9:1（视规则而定）。概率与赔率之间的差值构成了游戏的长期结构。</p>
+      </details>
+      <p style="margin-top: 18px; font-size: 0.9rem; color: #6a6258;">以上说明基于通用的规则整理，具体以实际场所或平台的条款为准。</p>
+    </div>
+
+    <!-- 页尾 -->
+    <div class="footnote">
+      <span>🧷 本页为信息索引 · 内容不断补充</span>
+      <span>关于 <a href="https://cnsite--baccarat.com" class="accent-link">百家乐</a> 的更多资料可参考外部站点</span>
+    </div>
+
+  </section>
+</div>
+
+</body>
+</html>
