@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>赏金女王 · 主题介绍页</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #faf7f2;
+            font-family: 'Segoe UI', 'PingFang SC', Roboto, 'Helvetica Neue', sans-serif;
+            color: #2d2a24;
+            line-height: 1.7;
+            padding: 2rem 1.2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        /* hero 区域 —— 主视觉卡片 */
+        .hero-card {
+            background: #fffdfa;
+            border-radius: 32px;
+            box-shadow: 0 8px 28px rgba(0,0,0,0.04), 0 2px 8px rgba(90, 70, 50, 0.06);
+            padding: 2.8rem 2.2rem;
+            margin-bottom: 2.8rem;
+            border-left: 6px solid #cba37a;
+            transition: box-shadow 0.25s;
+        }
+
+        .hero-card:hover {
+            box-shadow: 0 12px 36px rgba(0,0,0,0.07);
+        }
+
+        .hero-card h1 {
+            font-size: 2.6rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            color: #3f352b;
+            margin-bottom: 0.6rem;
+        }
+
+        .hero-sub {
+            font-size: 1.1rem;
+            color: #7d6e5d;
+            border-bottom: 1px solid #e7ddd0;
+            padding-bottom: 1.2rem;
+            margin-bottom: 1.4rem;
+        }
+
+        .hero-description {
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        .hero-description a {
+            color: #8b6f4f;
+            text-decoration: none;
+            border-bottom: 1px solid #dac9b6;
+            font-weight: 500;
+            transition: color 0.15s, border-color 0.15s;
+        }
+
+        .hero-description a:hover {
+            color: #5f4a32;
+            border-bottom-color: #5f4a32;
+        }
+
+        /* 两列卡片网格 — 用途卡片 & 适合人群 */
+        .grid-2col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.8rem;
+            margin-bottom: 2.8rem;
+        }
+
+        .card {
+            background: #fffffffb;
+            border-radius: 24px;
+            padding: 1.8rem 1.8rem 2rem;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.03);
+            border: 1px solid #ede6db;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 28px rgba(80, 60, 40, 0.06);
+        }
+
+        .card h2 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #3f352b;
+            margin-bottom: 1.2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #e3d6c4;
+            display: inline-block;
+        }
+
+        .card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .card ul li {
+            position: relative;
+            padding-left: 1.6rem;
+            margin-bottom: 0.7rem;
+            font-size: 0.98rem;
+            color: #3b342c;
+        }
+
+        .card ul li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: #b59574;
+            font-weight: bold;
+        }
+
+        .card p {
+            font-size: 0.98rem;
+            color: #4f463b;
+        }
+
+        .card .tag-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem 0.7rem;
+            margin-top: 0.8rem;
+        }
+
+        .tag {
+            background: #f2ebe2;
+            padding: 0.2rem 1rem;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            color: #4f3f2f;
+            letter-spacing: 0.2px;
+            border: 1px solid #dfd2c1;
+        }
+
+        /* 引用块 / 提示框 */
+        .insight-block {
+            background: #f8f2e9;
+            border-left: 5px solid #b59574;
+            border-radius: 18px;
+            padding: 1.6rem 2rem;
+            margin-bottom: 2.8rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+        }
+
+        .insight-block strong {
+            color: #4d3b28;
+            font-weight: 600;
+            display: block;
+            font-size: 1.05rem;
+            margin-bottom: 0.45rem;
+        }
+
+        .insight-block p {
+            font-size: 0.98rem;
+            color: #3f372e;
+        }
+
+        /* 自然链接段落 — 附 FAQ 摘要 */
+        .link-paragraph {
+            background: #fffdfa;
+            border-radius: 24px;
+            padding: 1.6rem 2rem 2rem;
+            margin-bottom: 2.5rem;
+            border: 1px solid #e8dfd2;
+        }
+
+        .link-paragraph h3 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: #3f352b;
+            margin-bottom: 0.7rem;
+        }
+
+        .link-paragraph p {
+            margin-bottom: 0.7rem;
+            font-size: 0.98rem;
+        }
+
+        .link-paragraph a {
+            color: #8b6f4f;
+            text-decoration: none;
+            border-bottom: 1px solid #d4c1ac;
+            font-weight: 500;
+            transition: color 0.15s, border-color 0.15s;
+        }
+
+        .link-paragraph a:hover {
+            color: #4d3b28;
+            border-bottom-color: #4d3b28;
+        }
+
+        .faq-mini {
+            margin-top: 1.2rem;
+            padding-top: 1rem;
+            border-top: 1px dashed #dccfc0;
+        }
+
+        .faq-item {
+            margin-bottom: 0.5rem;
+        }
+
+        .faq-q {
+            font-weight: 500;
+            color: #4f3f2f;
+        }
+
+        .faq-a {
+            color: #5b4f41;
+            padding-left: 1.2rem;
+            font-size: 0.93rem;
+        }
+
+        /* 页脚 */
+        .footer-note {
+            text-align: center;
+            font-size: 0.85rem;
+            color: #9b8b78;
+            padding: 1.5rem 0 0.5rem;
+            border-top: 1px solid #e7ddd0;
+            margin-top: 1.2rem;
+        }
+
+        /* 响应式 */
+        @media (max-width: 680px) {
+            body {
+                padding: 1.2rem 0.9rem;
+            }
+            .hero-card {
+                padding: 2rem 1.4rem;
+            }
+            .hero-card h1 {
+                font-size: 2rem;
+            }
+            .grid-2col {
+                grid-template-columns: 1fr;
+                gap: 1.4rem;
+            }
+            .card {
+                padding: 1.4rem;
+            }
+            .insight-block {
+                padding: 1.2rem 1.4rem;
+            }
+            .link-paragraph {
+                padding: 1.2rem 1.2rem 1.6rem;
+            }
+        }
+
+        @media (min-width: 820px) {
+            .hero-card {
+                padding: 3.2rem 3rem;
+            }
+        }
+
+        /* 装饰细节 */
+        .pale-divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, #dccfc0, transparent);
+            margin: 0.6rem 0 1.2rem;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- 主视觉卡片 hero -->
+    <div class="hero-card">
+        <h1>赏金女王 · 主题侧写</h1>
+        <div class="hero-sub">从虚构意象到文化符号，一次克制的主题解读</div>
+        <div class="hero-description">
+            <p>「赏金女王」并非一个扁平标签，而是一种融合冒险、策略与角色叙事的题材原型。它常出现在虚构世界观中，象征拥有独立判断力、在风险与回报之间灵活运作的女性角色。无论是在桌游扩展、文字冒险还是策略类叙事里，这一设定都承载着对自主选择与边界探索的隐喻。</p>
+            <p>若你希望进一步了解该主题的设定与背景，可参考 <a href="https://queenofbounty-m.com">赏金女王</a> 相关内容——其架构从角色背景到世界规则皆有独立展开，适合对题材深度感兴趣的读者。</p>
+        </div>
+    </div>
+
+    <!-- 两栏卡片：用途 & 适合人群 -->
+    <div class="grid-2col">
+        <div class="card">
+            <h2>用途场景</h2>
+            <ul>
+                <li>作为原创世界观的核心角色模板，驱动剧情冲突</li>
+                <li>卡牌构筑或桌游设计中的可变 player 能力原型</li>
+                <li>短篇叙事、RPG 插件或独立漫画的角色设定参考</li>
+                <li>主题向内容聚合页、专题站或爱好者维基的切入点</li>
+                <li>灵感碎片整理与 mood board 的主题锚点</li>
+            </ul>
+            <div class="tag-group">
+                <span class="tag">世界观</span>
+                <span class="tag">角色设计</span>
+                <span class="tag">叙事原型</span>
+                <span class="tag">桌游素材</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>适合人群</h2>
+            <ul>
+                <li>题材创作者与独立设定爱好者</li>
+                <li>策略游戏、文字冒险与叙事向玩家</li>
+                <li>角色艺术、同人及世界观构建社群</li>
+                <li>希望从主题层面理解「赏金女王」的浏览者</li>
+                <li>内容策展人与非虚构类题材研究者</li>
+            </ul>
+            <div class="tag-group">
+                <span class="tag">创作者</span>
+                <span class="tag">叙事玩家</span>
+                <span class="tag">设定考据</span>
+                <span class="tag">文化观察</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 引用块 / 提示框 -->
+    <div class="insight-block">
+        <strong>⧫ 主题提示</strong>
+        <p>「赏金女王」在多数语境下并非指向真实职业或历史人物，而是一种故事机制中的角色原型。其魅力往往源于独立意志与模糊道德地带的张力。建议以虚构设定或创作素材的视角来理解，避免与现实身份直接对应。</p>
+    </div>
+
+    <!-- 自然链接段落 + FAQ 摘要 -->
+    <div class="link-paragraph">
+        <h3>关于主题的延伸阅读</h3>
+        <p>如果你正在搜集与赏金主题相关的角色设定资料，或想了解虚构世界中该类角色的典型叙事结构，可以直接查阅 <a href="https://queenofbounty-m.com">赏金女王</a> 专题页。该页面集中整理了背景设定、能力倾向及相关的衍生作品片段，可作为创作或考据的索引。</p>
+        <p>此外，我们注意到部分用户会将该主题与特定游戏角色、模组或桌游扩展关联。专题内也提供了简明的对照视角，帮助区分不同媒介下的表达差异。</p>
+
+        <div class="faq-mini">
+            <div class="faq-item">
+                <span class="faq-q">Q：这个主题有官方设定吗？</span>
+                <div class="faq-a">目前没有统一的官方设定集，但该专题整合了多来源的解读与参考，适合作为起点。</div>
+            </div>
+            <div class="faq-item">
+                <span class="faq-q">Q：是否包含具体作品下载？</span>
+                <div class="faq-a">专题以介绍和索引为主，不提供直接下载链接，但会标注可参考的公开来源。</div>
+            </div>
+            <div class="faq-item">
+                <span class="faq-q">Q：内容更新频率如何？</span>
+                <div class="faq-a">随题材关注度与社区贡献不定期补充，重点保持在概念梳理层面。</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <div class="footer-note">
+        <span>主题介绍 · 非官方解读 · 信息卡片式呈现</span>
+    </div>
+
+</div>
+</body>
+</html>
